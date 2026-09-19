@@ -10,7 +10,7 @@ inject_custom_css()
 df_raw = load_data()
 df, _, _ = render_sidebar_filters(df_raw)
 
-st.markdown("## :material/model_training: Prédictions Machine Learning")
+st.markdown('<h2 style="margin-bottom: 20px;"><i class="fa-solid fa-robot"></i>  Prédictions Machine Learning</h2>', unsafe_allow_html=True)
 
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingRegressor
 from sklearn.model_selection import train_test_split
@@ -18,7 +18,7 @@ from sklearn.metrics import mean_absolute_error, r2_score
 import warnings
 warnings.filterwarnings("ignore")
 
-tab1, tab2 = st.tabs([":material/ads_click: Prédiction du Churn", ":material/payments: Prédiction du CA client"])
+tab1, tab2 = st.tabs(["■  Prédiction du Churn", "■  Prédiction du CA client"])
 
 with tab1:
     st.markdown("**Objectif :** Identifier les clients risquant de ne plus commander (churn = 0 commande depuis > 90 jours)")
@@ -60,7 +60,7 @@ with tab1:
 
     col1, col2 = st.columns(2)
     with col1:
-        st.subheader(":material/search:  Importance des variables")
+        st.markdown('<div class="section-header"><i class="fa-solid fa-magnifying-glass"></i>  Importance des variables</div>', unsafe_allow_html=True)
         fig_fi = go.Figure(go.Bar(
             x=fi["Importance"], y=fi["Feature"],
             orientation="h", marker_color=COLORS["primary"],
@@ -73,7 +73,7 @@ with tab1:
         st.plotly_chart(fig_fi, use_container_width=True)
 
     with col2:
-        st.subheader(":material/ads_click:  Clients à risque par segment CA")
+        st.markdown('<div class="section-header"><i class="fa-solid fa-mouse-pointer"></i>  Clients à risque par segment CA</div>', unsafe_allow_html=True)
         customer_features["churn_proba"] = model.predict_proba(X)[:, 1]
         customer_features["risk"] = pd.cut(customer_features["churn_proba"],
                                             bins=[0,0.33,0.66,1],
@@ -110,7 +110,7 @@ with tab2:
     c1.metric("R² Score", f"{r2:.3f}", "Excellent si > 0.8")
     c2.metric("MAE (€)", f"{mae:.1f}", "Erreur moyenne absolue")
 
-    st.subheader(":material/bar_chart:  Valeurs réelles vs prédites")
+    st.markdown('<div class="section-header"><i class="fa-solid fa-chart-simple"></i>  Valeurs réelles vs prédites</div>', unsafe_allow_html=True)
     pred_df = pd.DataFrame({"Réel": y2_test.values, "Prédit": y2_pred})
     fig_pred = go.Figure()
     fig_pred.add_trace(go.Scatter(

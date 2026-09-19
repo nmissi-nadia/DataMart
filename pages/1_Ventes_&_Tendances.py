@@ -11,10 +11,10 @@ inject_custom_css()
 df_raw = load_data()
 df, df_all, categories = render_sidebar_filters(df_raw)
 
-st.markdown("## :material/monitoring: Analyse des Ventes & Tendances")
+st.markdown('<h2 style="margin-bottom: 20px;"><i class="fa-solid fa-chart-line"></i>  Analyse des Ventes & Tendances</h2>', unsafe_allow_html=True)
 
 # Weekly heatmap
-st.subheader(":material/calendar_month:  Heatmap — Volume de commandes par jour et semaine")
+st.markdown('<div class="section-header"><i class="fa-solid fa-calendar-days"></i>  Heatmap — Volume de commandes par jour et semaine</div>', unsafe_allow_html=True)
 
 df_heat = df_all.copy()
 day_order = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
@@ -42,7 +42,7 @@ st.plotly_chart(fig_h, use_container_width=True)
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader(":material/bar_chart:  CA par catégorie et mois")
+    st.markdown('<div class="section-header"><i class="fa-solid fa-chart-simple"></i>  CA par catégorie et mois</div>', unsafe_allow_html=True)
     cat_month = df.groupby(["month","category"])["revenue"].sum().reset_index()
     fig_cm = px.bar(cat_month, x="month", y="revenue", color="category",
                     color_discrete_sequence=PALETTE,
@@ -53,7 +53,7 @@ with col1:
     st.plotly_chart(fig_cm, use_container_width=True)
 
 with col2:
-    st.subheader(":material/credit_card:  Mode de paiement vs panier moyen")
+    st.markdown('<div class="section-header"><i class="fa-solid fa-credit-card"></i>  Mode de paiement vs panier moyen</div>', unsafe_allow_html=True)
     pay = df.groupby("payment_method").agg(
         avg_basket=("revenue","mean"),
         volume=("order_id","count")
@@ -81,7 +81,7 @@ with col2:
     st.plotly_chart(fig_pay, use_container_width=True)
 
 # Price distribution
-st.subheader(":material/payments:  Distribution des prix par catégorie")
+st.markdown('<div class="section-header"><i class="fa-solid fa-money-bill-wave"></i>  Distribution des prix par catégorie</div>', unsafe_allow_html=True)
 fig_box = go.Figure()
 for i, cat in enumerate(categories):
     sub = df[df["category"] == cat]["unit_price"]
