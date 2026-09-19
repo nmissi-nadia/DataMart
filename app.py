@@ -20,7 +20,7 @@ df, df_all, categories = render_sidebar_filters(df_raw)
 # ════════════════════════════════════════════════════════════════════════════
 # PAGE 1 — VUE D'ENSEMBLE
 # ════════════════════════════════════════════════════════════════════════════
-st.markdown('<h2 style="margin-bottom: 20px;"><i class="fa-solid fa-house"></i>  Vue d'ensemble</h2>', unsafe_allow_html=True)
+st.markdown("<h2 style=\"margin-bottom: 20px;\"><i class=\"fa-solid fa-house\"></i>  Vue d'ensemble</h2>", unsafe_allow_html=True)
 st.caption(f"Données filtrées : **{len(df):,}** commandes livrées")
 
 # KPIs
@@ -85,7 +85,7 @@ with col2:
 col3, col4, col5 = st.columns([1, 1, 1])
 
 with col3:
-    st.markdown('<div class="section-header"><i class="fa-solid fa-bullhorn"></i>  Canal d\'acquisition</div>', unsafe_allow_html=True)
+    st.markdown("<div class=\"section-header\"><i class=\"fa-solid fa-bullhorn\"></i>  Canal d'acquisition</div>", unsafe_allow_html=True)
     chan = df.groupby("channel").agg(revenue=("revenue","sum"), orders=("order_id","count")).reset_index()
     fig3 = go.Figure(go.Bar(
         x=chan["revenue"], y=chan["channel"],
