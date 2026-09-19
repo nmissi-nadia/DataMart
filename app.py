@@ -1,7 +1,7 @@
 import streamlit as st
 import plotly.graph_objects as go
 from utils.data_loader import load_data, render_sidebar_filters
-from utils.ui import inject_custom_css, kpi_card, fmt, COLORS, PALETTE, CHART_LAYOUT
+from utils.ui import apply_ui_settings, kpi_card, fmt, COLORS, PALETTE, CHART_LAYOUT
 
 # ─── CONFIG ─────────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -11,7 +11,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-inject_custom_css()
+apply_ui_settings()
 
 # ─── DATA & SIDEBAR ─────────────────────────────────────────────────────────
 df_raw = load_data()

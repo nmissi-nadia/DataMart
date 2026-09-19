@@ -2,10 +2,10 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 from utils.data_loader import load_data, render_sidebar_filters
-from utils.ui import inject_custom_css, fmt, COLORS, CHART_LAYOUT
+from utils.ui import apply_ui_settings, fmt, COLORS, CHART_LAYOUT
 
 st.set_page_config(page_title="Prédictions ML | DataMart", page_icon="??", layout="wide")
-inject_custom_css()
+apply_ui_settings()
 
 df_raw = load_data()
 df, _, _ = render_sidebar_filters(df_raw)

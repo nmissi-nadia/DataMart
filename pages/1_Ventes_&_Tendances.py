@@ -3,10 +3,10 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from utils.data_loader import load_data, render_sidebar_filters
-from utils.ui import inject_custom_css, fmt, COLORS, PALETTE, CHART_LAYOUT
+from utils.ui import apply_ui_settings, fmt, COLORS, PALETTE, CHART_LAYOUT
 
 st.set_page_config(page_title="Ventes & Tendances | DataMart", page_icon="??", layout="wide")
-inject_custom_css()
+apply_ui_settings()
 
 df_raw = load_data()
 df, df_all, categories = render_sidebar_filters(df_raw)
