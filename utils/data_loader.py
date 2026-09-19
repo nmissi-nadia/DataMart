@@ -14,7 +14,7 @@ def render_sidebar_filters(df_raw):
     with st.sidebar:
         st.markdown("""
         <div class="sidebar-logo">
-            <h2>📊 DataMart</h2>
+            <h2>:material/bar_chart: DataMart</h2>
             <p>Analytics Dashboard v2.0</p>
         </div>
         """, unsafe_allow_html=True)

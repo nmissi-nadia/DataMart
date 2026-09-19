@@ -4,13 +4,13 @@ import plotly.graph_objects as go
 from utils.data_loader import load_data, render_sidebar_filters
 from utils.ui import inject_custom_css, fmt, COLORS, CHART_LAYOUT
 
-st.set_page_config(page_title="Prédictions ML | DataMart", page_icon="🔮", layout="wide")
+st.set_page_config(page_title="Prédictions ML | DataMart", page_icon=":material/model_training:", layout="wide")
 inject_custom_css()
 
 df_raw = load_data()
 df, _, _ = render_sidebar_filters(df_raw)
 
-st.markdown("## 🔮 Prédictions Machine Learning")
+st.markdown("## :material/model_training: Prédictions Machine Learning")
 
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingRegressor
 from sklearn.model_selection import train_test_split
@@ -18,7 +18,7 @@ from sklearn.metrics import mean_absolute_error, r2_score
 import warnings
 warnings.filterwarnings("ignore")
 
-tab1, tab2 = st.tabs(["🎯 Prédiction du Churn", "💰 Prédiction du CA client"])
+tab1, tab2 = st.tabs([":material/ads_click: Prédiction du Churn", ":material/payments: Prédiction du CA client"])
 
 with tab1:
     st.markdown("**Objectif :** Identifier les clients risquant de ne plus commander (churn = 0 commande depuis > 90 jours)")
@@ -60,7 +60,7 @@ with tab1:
 
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown('<div class="section-header"><span>🔍</span> Importance des variables</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-header"><span>:material/search:</span> Importance des variables</div>', unsafe_allow_html=True)
         fig_fi = go.Figure(go.Bar(
             x=fi["Importance"], y=fi["Feature"],
             orientation="h", marker_color=COLORS["primary"],
@@ -73,7 +73,7 @@ with tab1:
         st.plotly_chart(fig_fi, use_container_width=True)
 
     with col2:
-        st.markdown('<div class="section-header"><span>🎯</span> Clients à risque par segment CA</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-header"><span>:material/ads_click:</span> Clients à risque par segment CA</div>', unsafe_allow_html=True)
         customer_features["churn_proba"] = model.predict_proba(X)[:, 1]
         customer_features["risk"] = pd.cut(customer_features["churn_proba"],
                                             bins=[0,0.33,0.66,1],
@@ -110,7 +110,7 @@ with tab2:
     c1.metric("R² Score", f"{r2:.3f}", "Excellent si > 0.8")
     c2.metric("MAE (€)", f"{mae:.1f}", "Erreur moyenne absolue")
 
-    st.markdown('<div class="section-header"><span>📊</span> Valeurs réelles vs prédites</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><span>:material/bar_chart:</span> Valeurs réelles vs prédites</div>', unsafe_allow_html=True)
     pred_df = pd.DataFrame({"Réel": y2_test.values, "Prédit": y2_pred})
     fig_pred = go.Figure()
     fig_pred.add_trace(go.Scatter(

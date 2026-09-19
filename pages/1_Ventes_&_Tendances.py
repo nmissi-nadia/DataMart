@@ -5,16 +5,16 @@ import plotly.graph_objects as go
 from utils.data_loader import load_data, render_sidebar_filters
 from utils.ui import inject_custom_css, fmt, COLORS, PALETTE, CHART_LAYOUT
 
-st.set_page_config(page_title="Ventes & Tendances | DataMart", page_icon="📈", layout="wide")
+st.set_page_config(page_title="Ventes & Tendances | DataMart", page_icon=":material/monitoring:", layout="wide")
 inject_custom_css()
 
 df_raw = load_data()
 df, df_all, categories = render_sidebar_filters(df_raw)
 
-st.markdown("## 📈 Analyse des Ventes & Tendances")
+st.markdown("## :material/monitoring: Analyse des Ventes & Tendances")
 
 # Weekly heatmap
-st.markdown('<div class="section-header"><span>🗓️</span> Heatmap — Volume de commandes par jour et semaine</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-header"><span>:material/calendar_month:</span> Heatmap — Volume de commandes par jour et semaine</div>', unsafe_allow_html=True)
 
 df_heat = df_all.copy()
 day_order = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
@@ -42,7 +42,7 @@ st.plotly_chart(fig_h, use_container_width=True)
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown('<div class="section-header"><span>📊</span> CA par catégorie et mois</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><span>:material/bar_chart:</span> CA par catégorie et mois</div>', unsafe_allow_html=True)
     cat_month = df.groupby(["month","category"])["revenue"].sum().reset_index()
     fig_cm = px.bar(cat_month, x="month", y="revenue", color="category",
                     color_discrete_sequence=PALETTE,
@@ -53,7 +53,7 @@ with col1:
     st.plotly_chart(fig_cm, use_container_width=True)
 
 with col2:
-    st.markdown('<div class="section-header"><span>💳</span> Mode de paiement vs panier moyen</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><span>:material/credit_card:</span> Mode de paiement vs panier moyen</div>', unsafe_allow_html=True)
     pay = df.groupby("payment_method").agg(
         avg_basket=("revenue","mean"),
         volume=("order_id","count")
@@ -81,7 +81,7 @@ with col2:
     st.plotly_chart(fig_pay, use_container_width=True)
 
 # Price distribution
-st.markdown('<div class="section-header"><span>💰</span> Distribution des prix par catégorie</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-header"><span>:material/payments:</span> Distribution des prix par catégorie</div>', unsafe_allow_html=True)
 fig_box = go.Figure()
 for i, cat in enumerate(categories):
     sub = df[df["category"] == cat]["unit_price"]

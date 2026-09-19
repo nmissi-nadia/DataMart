@@ -1,20 +1,22 @@
 import streamlit as st
 
 COLORS = {
-    "primary":   "#4f8ef7",
-    "success":   "#00d4aa",
-    "warning":   "#ff7f50",
-    "danger":    "#ff5c5c",
-    "purple":    "#c084fc",
-    "teal":      "#22d3ee",
-    "bg":        "#1e2130",
-    "text":      "#f0f4ff",
-    "muted":     "#8b9ab1",
+    "primary":   "#0ea5e9",  # Sky blue (Brand primary)
+    "secondary": "#f8fafc",  # Light slate
+    "accent":    "#0284c7",  # Darker blue
+    "bg":        "#0f172a",  # Deep slate (Background)
+    "text":      "#f1f5f9",
+    "muted":     "#94a3b8",
+    # Mapped semantic colors to the unified blue/slate theme
+    "success":   "#38bdf8",
+    "warning":   "#0284c7",
+    "danger":    "#0c4a6e",
+    "purple":    "#0284c7",
+    "teal":      "#38bdf8",
 }
 
-PALETTE = [COLORS["primary"], COLORS["success"], COLORS["warning"],
-           COLORS["purple"], COLORS["teal"], COLORS["danger"],
-           "#f59e0b", "#10b981", "#6366f1"]
+# Simplified 3-color palette for charts (Primary, Light, Dark)
+PALETTE = ["#0ea5e9", "#38bdf8", "#0284c7", "#7dd3fc", "#0369a1"]
 
 CHART_LAYOUT = dict(
     paper_bgcolor="rgba(0,0,0,0)",
