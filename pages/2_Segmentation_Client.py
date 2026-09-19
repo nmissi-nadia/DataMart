@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 from utils.data_loader import load_data, render_sidebar_filters
 from utils.ui import inject_custom_css, fmt, COLORS, CHART_LAYOUT
 
-st.set_page_config(page_title="Segmentation Client | DataMart", page_icon=":material/psychology:", layout="wide")
+st.set_page_config(page_title="Segmentation Client | DataMart", page_icon="??", layout="wide")
 inject_custom_css()
 
 df_raw = load_data()

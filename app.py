@@ -6,7 +6,7 @@ from utils.ui import inject_custom_css, kpi_card, fmt, COLORS, PALETTE, CHART_LA
 # ─── CONFIG ─────────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="DataMart Analytics",
-    page_icon=":material/bar_chart:",
+    page_icon="??",
     layout="wide",
     initial_sidebar_state="expanded",
 )

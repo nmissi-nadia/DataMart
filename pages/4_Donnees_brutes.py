@@ -2,7 +2,7 @@ import streamlit as st
 from utils.data_loader import load_data, render_sidebar_filters
 from utils.ui import inject_custom_css
 
-st.set_page_config(page_title="Données brutes | DataMart", page_icon=":material/list_alt:", layout="wide")
+st.set_page_config(page_title="Données brutes | DataMart", page_icon="??", layout="wide")
 inject_custom_css()
 
 df_raw = load_data()
