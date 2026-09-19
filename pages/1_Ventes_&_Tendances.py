@@ -14,7 +14,7 @@ df, df_all, categories = render_sidebar_filters(df_raw)
 st.markdown("## :material/monitoring: Analyse des Ventes & Tendances")
 
 # Weekly heatmap
-st.markdown('<div class="section-header"><span>:material/calendar_month:</span> Heatmap — Volume de commandes par jour et semaine</div>', unsafe_allow_html=True)
+st.subheader(":material/calendar_month:  Heatmap — Volume de commandes par jour et semaine")
 
 df_heat = df_all.copy()
 day_order = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
@@ -42,7 +42,7 @@ st.plotly_chart(fig_h, use_container_width=True)
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown('<div class="section-header"><span>:material/bar_chart:</span> CA par catégorie et mois</div>', unsafe_allow_html=True)
+    st.subheader(":material/bar_chart:  CA par catégorie et mois")
     cat_month = df.groupby(["month","category"])["revenue"].sum().reset_index()
     fig_cm = px.bar(cat_month, x="month", y="revenue", color="category",
                     color_discrete_sequence=PALETTE,
@@ -53,7 +53,7 @@ with col1:
     st.plotly_chart(fig_cm, use_container_width=True)
 
 with col2:
-    st.markdown('<div class="section-header"><span>:material/credit_card:</span> Mode de paiement vs panier moyen</div>', unsafe_allow_html=True)
+    st.subheader(":material/credit_card:  Mode de paiement vs panier moyen")
     pay = df.groupby("payment_method").agg(
         avg_basket=("revenue","mean"),
         volume=("order_id","count")
@@ -81,7 +81,7 @@ with col2:
     st.plotly_chart(fig_pay, use_container_width=True)
 
 # Price distribution
-st.markdown('<div class="section-header"><span>:material/payments:</span> Distribution des prix par catégorie</div>', unsafe_allow_html=True)
+st.subheader(":material/payments:  Distribution des prix par catégorie")
 fig_box = go.Figure()
 for i, cat in enumerate(categories):
     sub = df[df["category"] == cat]["unit_price"]

@@ -77,7 +77,7 @@ def inject_custom_css():
 
         /* Sidebar */
         [data-testid="stSidebar"] {
-            background: linear-gradient(180deg, #111827 0%, #0f1117 100%);
+            background-color: #0f172a;
             border-right: 1px solid #1e2130;
         }
         [data-testid="stSidebar"] .block-container { padding-top: 2rem; }

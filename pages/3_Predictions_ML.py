@@ -60,7 +60,7 @@ with tab1:
 
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown('<div class="section-header"><span>:material/search:</span> Importance des variables</div>', unsafe_allow_html=True)
+        st.subheader(":material/search:  Importance des variables")
         fig_fi = go.Figure(go.Bar(
             x=fi["Importance"], y=fi["Feature"],
             orientation="h", marker_color=COLORS["primary"],
@@ -73,7 +73,7 @@ with tab1:
         st.plotly_chart(fig_fi, use_container_width=True)
 
     with col2:
-        st.markdown('<div class="section-header"><span>:material/ads_click:</span> Clients à risque par segment CA</div>', unsafe_allow_html=True)
+        st.subheader(":material/ads_click:  Clients à risque par segment CA")
         customer_features["churn_proba"] = model.predict_proba(X)[:, 1]
         customer_features["risk"] = pd.cut(customer_features["churn_proba"],
                                             bins=[0,0.33,0.66,1],
@@ -110,7 +110,7 @@ with tab2:
     c1.metric("R² Score", f"{r2:.3f}", "Excellent si > 0.8")
     c2.metric("MAE (€)", f"{mae:.1f}", "Erreur moyenne absolue")
 
-    st.markdown('<div class="section-header"><span>:material/bar_chart:</span> Valeurs réelles vs prédites</div>', unsafe_allow_html=True)
+    st.subheader(":material/bar_chart:  Valeurs réelles vs prédites")
     pred_df = pd.DataFrame({"Réel": y2_test.values, "Prédit": y2_pred})
     fig_pred = go.Figure()
     fig_pred.add_trace(go.Scatter(

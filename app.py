@@ -44,7 +44,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 col1, col2 = st.columns([2, 1])
 
 with col1:
-    st.markdown('<div class="section-header"><span>:material/monitoring:</span> Évolution du CA mensuel</div>', unsafe_allow_html=True)
+    st.subheader(":material/monitoring:  Évolution du CA mensuel")
     monthly = (df.groupby("month")["revenue"]
                  .sum().reset_index()
                  .sort_values("month"))
@@ -67,7 +67,7 @@ with col1:
     st.plotly_chart(fig, use_container_width=True)
 
 with col2:
-    st.markdown('<div class="section-header"><span>:material/pie_chart:</span> CA par catégorie</div>', unsafe_allow_html=True)
+    st.subheader(":material/pie_chart:  CA par catégorie")
     cat_rev = df.groupby("category")["revenue"].sum().reset_index()
     fig2 = go.Figure(go.Pie(
         labels=cat_rev["category"], values=cat_rev["revenue"],
@@ -85,7 +85,7 @@ with col2:
 col3, col4, col5 = st.columns([1, 1, 1])
 
 with col3:
-    st.markdown('<div class="section-header"><span>:material/campaign:</span> Canal d\'acquisition</div>', unsafe_allow_html=True)
+    st.subheader(":material/campaign:  Canal d\'acquisition")
     chan = df.groupby("channel").agg(revenue=("revenue","sum"), orders=("order_id","count")).reset_index()
     fig3 = go.Figure(go.Bar(
         x=chan["revenue"], y=chan["channel"],
@@ -100,7 +100,7 @@ with col3:
     st.plotly_chart(fig3, use_container_width=True)
 
 with col4:
-    st.markdown('<div class="section-header"><span>:material/map:</span> Top régions</div>', unsafe_allow_html=True)
+    st.subheader(":material/map:  Top régions")
     region_rev = df.groupby("region")["revenue"].sum().sort_values(ascending=True).tail(6)
     fig4 = go.Figure(go.Bar(
         x=region_rev.values, y=region_rev.index,
@@ -115,7 +115,7 @@ with col4:
     st.plotly_chart(fig4, use_container_width=True)
 
 with col5:
-    st.markdown('<div class="section-header"><span>:material/inventory_2:</span> Statut des commandes</div>', unsafe_allow_html=True)
+    st.subheader(":material/inventory_2:  Statut des commandes")
     stat = df_all.groupby("status")["order_id"].count().reset_index()
     stat.columns = ["status", "count"]
     colors_map = {"Livré":"#00d4aa","En cours":"#4f8ef7","Annulé":"#ff5c5c","Retourné":"#ff7f50"}

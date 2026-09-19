@@ -62,7 +62,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown('<div class="section-header"><span>:material/ads_click:</span> Scatter RFM — Fréquence vs Monétaire</div>', unsafe_allow_html=True)
+    st.subheader(":material/ads_click:  Scatter RFM — Fréquence vs Monétaire")
     fig_rfm = px.scatter(
         rfm, x="frequency", y="monetary", color="segment",
         size="RFM_score", hover_data=["customer_id","recency"],
@@ -73,7 +73,7 @@ with col1:
     st.plotly_chart(fig_rfm, use_container_width=True)
 
 with col2:
-    st.markdown('<div class="section-header"><span>:material/bar_chart:</span> Répartition des segments</div>', unsafe_allow_html=True)
+    st.subheader(":material/bar_chart:  Répartition des segments")
     seg_dist = rfm.groupby("segment").agg(
         clients=("customer_id","count"),
         ca=("monetary","sum")
@@ -90,7 +90,7 @@ with col2:
     st.plotly_chart(fig_seg, use_container_width=True)
 
 # Table
-st.markdown('<div class="section-header"><span>:material/list_alt:</span> Top 20 clients (Champions)</div>', unsafe_allow_html=True)
+st.subheader(":material/list_alt:  Top 20 clients (Champions)")
 top_clients = rfm[rfm["segment"] == "Champions "].sort_values("monetary", ascending=False).head(20)
 st.dataframe(
     top_clients[["customer_id","recency","frequency","monetary","RFM_score","segment"]]
