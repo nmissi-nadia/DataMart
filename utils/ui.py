@@ -79,17 +79,20 @@ def apply_ui_settings():
 
         /* Sidebar */
         [data-testid="stSidebar"] {
-            background-color: #0f172a;
-            border-right: 1px solid #1e2130;
+            background-color: #f8fafc;
+            border-right: 1px solid #cbd5e1;
+        }
+        [data-testid="stSidebar"] * {
+            color: #0f172a !important;
         }
         [data-testid="stSidebar"] .block-container { padding-top: 2rem; }
 
         .sidebar-logo {
             text-align: center; padding: 0 0 24px 0;
-            border-bottom: 1px solid #1e2130; margin-bottom: 20px;
+            border-bottom: 1px solid #cbd5e1; margin-bottom: 20px;
         }
-        .sidebar-logo h2 { color: #f0f4ff; font-size: 1.2rem; font-weight: 700; margin: 0; }
-        .sidebar-logo p  { color: #8b9ab1; font-size: 0.72rem; margin: 4px 0 0 0; }
+        .sidebar-logo h2 { color: #0f172a !important; font-size: 1.2rem; font-weight: 700; margin: 0; }
+        .sidebar-logo p  { color: #64748b !important; font-size: 0.72rem; margin: 4px 0 0 0; }
 
         /* Nav pills */
         .nav-section { color: #4f8ef7; font-size: 0.68rem; font-weight: 700;
