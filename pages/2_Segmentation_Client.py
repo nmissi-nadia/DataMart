@@ -69,7 +69,7 @@ with col1:
         color_discrete_map=seg_colors,
         labels={"frequency":"Fréquence (nb commandes)","monetary":"CA total (€)","segment":"Segment"},
     )
-    fig_rfm.update_layout(**CHART_LAYOUT, height=350)
+    fig_rfm.update_layout(**CHART_LAYOUT).update_layout(height=350)
     st.plotly_chart(fig_rfm, use_container_width=True)
 
 with col2:
@@ -84,7 +84,7 @@ with col2:
         marker_color=[seg_colors[s] for s in seg_dist["segment"]],
         marker_opacity=0.8,
     ))
-    fig_seg.update_layout(**CHART_LAYOUT, height=350, showlegend=False,
+    fig_seg.update_layout(**CHART_LAYOUT).update_layout(height=350, showlegend=False,
                           xaxis=dict(tickfont=dict(size=10, color=COLORS["muted"]),
                                      linecolor="#2d3250", gridcolor="rgba(0,0,0,0)"))
     st.plotly_chart(fig_seg, use_container_width=True)

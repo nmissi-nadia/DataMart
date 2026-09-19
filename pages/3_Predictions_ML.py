@@ -66,7 +66,7 @@ with tab1:
             orientation="h", marker_color=COLORS["primary"],
             text=[f"{v:.3f}" for v in fi["Importance"]], textposition="outside",
         ))
-        fig_fi.update_layout(**CHART_LAYOUT, height=280,
+        fig_fi.update_layout(**CHART_LAYOUT).update_layout(height=280,
                              xaxis=dict(showticklabels=False, showgrid=False, linecolor="#2d3250"),
                              yaxis=dict(gridcolor="rgba(0,0,0,0)", linecolor="#2d3250",
                                         tickfont=dict(color=COLORS["muted"])))
@@ -84,7 +84,7 @@ with tab1:
             marker_color=[COLORS["success"], COLORS["warning"], COLORS["danger"]],
             text=[fmt(v, "€") for v in risk_dist["monetary"]], textposition="outside",
         ))
-        fig_risk.update_layout(**CHART_LAYOUT, height=280,
+        fig_risk.update_layout(**CHART_LAYOUT).update_layout(height=280,
                                xaxis=dict(gridcolor="rgba(0,0,0,0)", linecolor="#2d3250",
                                           tickfont=dict(color=COLORS["muted"])),
                                yaxis=dict(showticklabels=False, showgrid=False, linecolor="#2d3250"))
@@ -124,6 +124,6 @@ with tab2:
         mode="lines", line=dict(color=COLORS["success"], dash="dash", width=2),
         name="Ligne parfaite",
     ))
-    fig_pred.update_layout(**CHART_LAYOUT, height=380,
+    fig_pred.update_layout(**CHART_LAYOUT).update_layout(height=380,
                            xaxis_title="CA réel (€)", yaxis_title="CA prédit (€)")
     st.plotly_chart(fig_pred, use_container_width=True)

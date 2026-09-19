@@ -61,7 +61,7 @@ with col1:
         name="Moyenne mobile 3M", line=dict(color=COLORS["success"], width=2.5),
         mode="lines",
     ))
-    fig.update_layout(**CHART_LAYOUT, height=280,
+    fig.update_layout(**CHART_LAYOUT).update_layout(height=280,
                       xaxis_tickangle=-45, xaxis_nticks=12,
                       legend=dict(orientation="h", y=1.1))
     st.plotly_chart(fig, use_container_width=True)
@@ -75,7 +75,7 @@ with col2:
         textinfo="percent", textfont_size=11,
         hovertemplate="<b>%{label}</b><br>CA: €%{value:,.0f}<extra></extra>",
     ))
-    fig2.update_layout(**CHART_LAYOUT, height=280,
+    fig2.update_layout(**CHART_LAYOUT).update_layout(height=280,
                        showlegend=True,
                        legend=dict(orientation="v", x=1.0, y=0.5,
                                    font=dict(size=10, color=COLORS["muted"])))
@@ -93,7 +93,7 @@ with col3:
         text=[fmt(v, "€") for v in chan["revenue"]], textposition="outside",
         hovertemplate="<b>%{y}</b><br>CA: %{text}<extra></extra>",
     ))
-    fig3.update_layout(**CHART_LAYOUT, height=220,
+    fig3.update_layout(**CHART_LAYOUT).update_layout(height=220,
                        xaxis=dict(showticklabels=False, showgrid=False, linecolor="#2d3250"),
                        yaxis=dict(gridcolor="rgba(0,0,0,0)", linecolor="#2d3250",
                                   tickfont=dict(color=COLORS["muted"])))
@@ -108,7 +108,7 @@ with col4:
         marker_opacity=0.85,
         text=[fmt(v, "€") for v in region_rev.values], textposition="outside",
     ))
-    fig4.update_layout(**CHART_LAYOUT, height=220,
+    fig4.update_layout(**CHART_LAYOUT).update_layout(height=220,
                        xaxis=dict(showticklabels=False, showgrid=False, linecolor="#2d3250"),
                        yaxis=dict(gridcolor="rgba(0,0,0,0)", linecolor="#2d3250",
                                   tickfont=dict(color=COLORS["muted"], size=10)))
@@ -124,5 +124,5 @@ with col5:
         hole=0.55, marker_colors=[colors_map.get(s, "#8b9ab1") for s in stat["status"]],
         textinfo="percent+label", textfont_size=10,
     ))
-    fig5.update_layout(**CHART_LAYOUT, height=220, showlegend=False)
+    fig5.update_layout(**CHART_LAYOUT).update_layout(height=220, showlegend=False)
     st.plotly_chart(fig5, use_container_width=True)

@@ -31,7 +31,7 @@ fig_h = go.Figure(go.Heatmap(
     showscale=True,
     hovertemplate="Semaine %{x} — %{y}<br>Commandes: %{z}<extra></extra>",
 ))
-fig_h.update_layout(**CHART_LAYOUT, height=270,
+fig_h.update_layout(**CHART_LAYOUT).update_layout(height=270,
                     xaxis=dict(nticks=20, gridcolor="rgba(0,0,0,0)",
                                tickfont=dict(color=COLORS["muted"], size=9),
                                linecolor="#2d3250"),
@@ -47,7 +47,7 @@ with col1:
     fig_cm = px.bar(cat_month, x="month", y="revenue", color="category",
                     color_discrete_sequence=PALETTE,
                     labels={"revenue":"CA (€)","month":"Mois","category":"Catégorie"})
-    fig_cm.update_layout(**CHART_LAYOUT, height=300,
+    fig_cm.update_layout(**CHART_LAYOUT).update_layout(height=300,
                          xaxis_tickangle=-45, xaxis_nticks=12,
                          legend=dict(orientation="h", y=-0.3, font=dict(size=10)))
     st.plotly_chart(fig_cm, use_container_width=True)
@@ -71,8 +71,8 @@ with col2:
         line=dict(color=COLORS["success"], width=2),
         yaxis="y2",
     ))
-    fig_pay.update_layout(
-        **CHART_LAYOUT, height=300,
+    fig_pay.update_layout(**CHART_LAYOUT).update_layout(
+        height=300,
         yaxis2=dict(overlaying="y", side="right",
                     tickfont=dict(color=COLORS["success"]),
                     gridcolor="rgba(0,0,0,0)", linecolor="#2d3250"),
@@ -89,5 +89,5 @@ for i, cat in enumerate(categories):
         y=sub, name=cat, marker_color=PALETTE[i % len(PALETTE)],
         boxmean="sd", line=dict(width=1.5),
     ))
-fig_box.update_layout(**CHART_LAYOUT, height=300, showlegend=False)
+fig_box.update_layout(**CHART_LAYOUT).update_layout(height=300, showlegend=False)
 st.plotly_chart(fig_box, use_container_width=True)
