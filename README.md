@@ -1,59 +1,89 @@
-# DataMart Analytics Dashboard
+# 📊 DataMart Analytics Dashboard
 
-Dashboard analytics interactif pour l'analyse d'un dataset e-commerce — projet portfolio Data Science.
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://streamlit.io/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Material Design](https://img.shields.io/badge/UI-Material_Design-0081CB?logo=material-design)](https://material.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Lancement rapide
+> **Projet Portfolio Data Science & Analytics** - Un tableau de bord e-commerce interactif avec une interface Material Design moderne, intégrant des analyses descriptives, une segmentation client (RFM) et du Machine Learning prédictif.
+
+---
+
+## 🎯 Contexte Business
+
+Dans le domaine du e-commerce, comprendre le comportement des clients et anticiper les tendances est vital. Ce tableau de bord a été conçu pour répondre à trois problématiques clés d'un Data Manager / Business Analyst :
+1. **Suivi des Performances (KPIs)** : Chiffre d'affaires, volume de commandes, panier moyen.
+2. **Connaissance Client (Segmentation)** : Identifier les meilleurs clients via un algorithme RFM (Récence, Fréquence, Montant).
+3. **Anticipation (Machine Learning)** : Prédire le churn (attrition) et prévoir l'évolution des ventes grâce à des modèles prédictifs.
+
+---
+
+## 🚀 Lancement rapide
 
 ```bash
-# 1. Cloner / dézipper le projet
-cd projet1_ecommerce_dashboard
+# 1. Cloner le projet
+git clone https://github.com/nmissi-nadia/DataMart.git
+cd DataMart
 
 # 2. Installer les dépendances
 pip install -r requirements.txt
 
 # 3. Lancer l'application
-streamlit run app.py
+python -m streamlit run app.py
+```
+L'application s'ouvre automatiquement sur `http://localhost:8501`.
+
+---
+
+## 🛠️ Stack technique
+
+- **Data Wrangling** : `Python`, `Pandas`, `NumPy`
+- **Machine Learning** : `Scikit-learn` (Random Forest, Gradient Boosting, KMeans)
+- **Data Visualization** : `Plotly` (Graphiques interactifs avancés)
+- **Frontend / UI** : `Streamlit`, `CSS` (Material Design, FontAwesome)
+
+---
+
+## 📱 Structure du projet
+
+```text
+DataMart/
+├── app.py                      ← Vue d'ensemble (KPIs)
+├── pages/
+│   ├── 1_Ventes_&_Tendances.py ← Analyse temporelle et canaux
+│   ├── 2_Segmentation_Client.py← Score RFM et clusters
+│   ├── 3_Predictions_ML.py     ← Modèles prédictifs
+│   └── 4_Donnees_brutes.py     ← Table interactive et export
+├── utils/
+│   ├── ui.py                   ← Design System (Material Design)
+│   └── data_loader.py          ← Générateur de données synthétiques
+└── requirements.txt
 ```
 
-L'application s'ouvre automatiquement sur `http://localhost:8501`
+---
 
-## Fonctionnalités
+## 📢 Modèle de Post LinkedIn (Copier/Coller)
 
-| Page | Contenu |
-|------|---------|
-| Vue d'ensemble | KPIs, CA mensuel, répartition catégories/régions |
-| Ventes & Tendances | Heatmap hebdo, distribution prix, analyse canal |
-| Segmentation RFM | Analyse Recency-Frequency-Monetary, scatter clients |
-| Prédictions ML | Churn prediction (Random Forest) + CA forecast (GBM) |
-| Données brutes | Table filtrée + export CSV |
+Voici une trame pour partager ce projet sur LinkedIn :
 
-## Stack technique
+```text
+🚀 [Nouveau Projet Portfolio] : DataMart Analytics Dashboard 📊
 
-- **Python** · **Pandas** · **NumPy** — Data wrangling
-- **Plotly** — Visualisations interactives
-- **Streamlit** — Interface web
-- **Scikit-learn** — Random Forest, Gradient Boosting, RFM scoring
+Je suis ravie de partager avec vous mon dernier projet personnel : une application d'analyse e-commerce développée de A à Z en Python !
 
-## Structure
+L'objectif de ce projet était de combiner le traitement de données (Data Science) avec une interface utilisateur moderne (Material Design) pour rendre les insights accessibles et impactants. 
 
+🛠️ Ce que j'ai implémenté :
+🔹 Analyse descriptive : Suivi des KPIs (CA, Panier Moyen) avec visualisations interactives (Plotly).
+🔹 Segmentation Client : Implémentation d'une analyse RFM pour identifier les différents profils d'acheteurs.
+🔹 Machine Learning : Intégration de modèles prédictifs (Random Forest) pour anticiper le churn client.
+🔹 Interface "Material Design" : Intégration de CSS personnalisé dans Streamlit pour une expérience utilisateur premium, claire et épurée.
+
+💻 Stack Technique : Python, Pandas, Scikit-Learn, Plotly, Streamlit.
+
+Le code source complet est disponible sur mon GitHub : [Insérez votre lien GitHub ici]
+
+Vos retours et commentaires sont les bienvenus ! 👇
+
+#DataScience #Python #DataAnalytics #MachineLearning #Streamlit #DataVisualization #Portfolio
 ```
-projet1_ecommerce_dashboard/
-├── app.py                  ← Application principale (5 pages)
-├── requirements.txt
-├── data/
-│   └── generate_data.py    ← Générateur de données synthétiques (5000 commandes)
-└── README.md
-```
-
-## Déploiement Streamlit Cloud (gratuit)
-
-1. Pusher le dossier sur GitHub
-2. Aller sur [share.streamlit.io](https://share.streamlit.io)
-3. Connecter le repo → Deploy
-
-## Idées d'améliorations
-
-- Connecter à une vraie base PostgreSQL
-- Ajouter une page "Forecasting" avec Prophet
-- Intégrer des alertes (Slack/email) si churn détecté
-- Authentification utilisateur (st.secrets)
