@@ -1,4 +1,4 @@
-# 📊 DataMart Analytics Dashboard
+#  DataMart Analytics Dashboard
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://streamlit.io/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -9,7 +9,7 @@
 
 ---
 
-## 🎯 Contexte Business
+##  Contexte Business
 
 Dans le domaine du e-commerce, comprendre le comportement des clients et anticiper les tendances est vital. Ce tableau de bord a été conçu pour répondre à trois problématiques clés d'un Data Manager / Business Analyst :
 1. **Suivi des Performances (KPIs)** : Chiffre d'affaires, volume de commandes, panier moyen.
@@ -18,7 +18,7 @@ Dans le domaine du e-commerce, comprendre le comportement des clients et anticip
 
 ---
 
-## 🚀 Lancement rapide
+##  Lancement rapide
 
 ```bash
 # 1. Cloner le projet
@@ -35,7 +35,7 @@ L'application s'ouvre automatiquement sur `http://localhost:8501`.
 
 ---
 
-## 🛠️ Stack technique
+##  Stack technique
 
 - **Data Wrangling** : `Python`, `Pandas`, `NumPy`
 - **Machine Learning** : `Scikit-learn` (Random Forest, Gradient Boosting, KMeans)
@@ -44,7 +44,7 @@ L'application s'ouvre automatiquement sur `http://localhost:8501`.
 
 ---
 
-## 📱 Structure du projet
+##  Structure du projet
 
 ```text
 DataMart/
@@ -60,30 +60,3 @@ DataMart/
 └── requirements.txt
 ```
 
----
-
-## 📢 Modèle de Post LinkedIn (Copier/Coller)
-
-Voici une trame pour partager ce projet sur LinkedIn :
-
-```text
-🚀 [Nouveau Projet Portfolio] : DataMart Analytics Dashboard 📊
-
-Je suis ravie de partager avec vous mon dernier projet personnel : une application d'analyse e-commerce développée de A à Z en Python !
-
-L'objectif de ce projet était de combiner le traitement de données (Data Science) avec une interface utilisateur moderne (Material Design) pour rendre les insights accessibles et impactants. 
-
-🛠️ Ce que j'ai implémenté :
-🔹 Analyse descriptive : Suivi des KPIs (CA, Panier Moyen) avec visualisations interactives (Plotly).
-🔹 Segmentation Client : Implémentation d'une analyse RFM pour identifier les différents profils d'acheteurs.
-🔹 Machine Learning : Intégration de modèles prédictifs (Random Forest) pour anticiper le churn client.
-🔹 Interface "Material Design" : Intégration de CSS personnalisé dans Streamlit pour une expérience utilisateur premium, claire et épurée.
-
-💻 Stack Technique : Python, Pandas, Scikit-Learn, Plotly, Streamlit.
-
-Le code source complet est disponible sur mon GitHub : [Insérez votre lien GitHub ici]
-
-Vos retours et commentaires sont les bienvenus ! 👇
-
-#DataScience #Python #DataAnalytics #MachineLearning #Streamlit #DataVisualization #Portfolio
-```
