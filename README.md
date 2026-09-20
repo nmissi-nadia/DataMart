@@ -61,5 +61,6 @@ DataMart/
 ```
 
 ---
-Demonstration rapide de mon site web 
-<video controls src="20260920-1540-40.1902634.mp4" title="Screen shot "></video>
+## 🎥 Démonstration rapide de mon site web 
+
+<video controls src="20260920-1540-40.1902634.mp4" title="Démonstration du Dashboard" width="700"></video>
