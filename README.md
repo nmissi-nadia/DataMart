@@ -1,4 +1,4 @@
-#  DataMart Analytics Dashboard
+# 📊 DataMart Analytics Dashboard
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://streamlit.io/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -9,7 +9,7 @@
 
 ---
 
-##  Contexte Business
+## 🎯 Contexte Business
 
 Dans le domaine du e-commerce, comprendre le comportement des clients et anticiper les tendances est vital. Ce tableau de bord a été conçu pour répondre à trois problématiques clés d'un Data Manager / Business Analyst :
 1. **Suivi des Performances (KPIs)** : Chiffre d'affaires, volume de commandes, panier moyen.
@@ -18,7 +18,7 @@ Dans le domaine du e-commerce, comprendre le comportement des clients et anticip
 
 ---
 
-##  Lancement rapide
+## 🚀 Lancement rapide
 
 ```bash
 # 1. Cloner le projet
@@ -35,7 +35,7 @@ L'application s'ouvre automatiquement sur `http://localhost:8501`.
 
 ---
 
-##  Stack technique
+## 🛠️ Stack technique
 
 - **Data Wrangling** : `Python`, `Pandas`, `NumPy`
 - **Machine Learning** : `Scikit-learn` (Random Forest, Gradient Boosting, KMeans)
@@ -44,7 +44,7 @@ L'application s'ouvre automatiquement sur `http://localhost:8501`.
 
 ---
 
-##  Structure du projet
+## 📱 Structure du projet
 
 ```text
 DataMart/
@@ -60,3 +60,6 @@ DataMart/
 └── requirements.txt
 ```
 
+---
+Demonstration rapide de mon site web 
+<video controls src="20260920-1540-40.1902634.mp4" title="Screen shot "></video>
